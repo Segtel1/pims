@@ -86,6 +86,19 @@
 				$('#additional-form').hide();
 			});
 		});
+
+		var totals=[0,0,0];
+		$(document).ready(function(){
+			var $dataRows=$("#sum_table tr:not('.totalColumn, .titlerow')");
+			$dataRows.each(function() {
+				$(this).find('.price').each(function(i){
+					totals[i]+=parseInt($(this).html());
+				});
+			});
+			$("#sum_table td.totalCol").each(function(i){
+				$(this).html(totals[i]);
+			});
+		});
 		</script>
 
 </body>

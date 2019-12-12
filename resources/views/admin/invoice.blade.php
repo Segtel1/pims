@@ -12,7 +12,7 @@
                                                     <h6 class="panel-title txt-dark">Invoice</h6>
                                                 </div>
                                                 <div class="pull-right">
-                                                    <h6 class="txt-dark">Order # 12345</h6>
+                                                    <h6 class="txt-dark">Order No: 0023AF</h6>
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </div>
@@ -48,9 +48,9 @@
                                                     
                                                     <div class="invoice-bill-table">
                                                         <div class="table-responsive">
-                                                            <table class="table table-hover">
+                                                            <table class="table table-hover" id="sum_table">
                                                                 <thead>
-                                                                    <tr>
+                                                                    <tr class="titlerow">
                                                                         <th>Item</th>
                                                                         <th>Price (&#8358;)</th>
                                                                         <th>Quantity</th>
@@ -61,44 +61,84 @@
                                                                     <tr>
                                                                         <td>{{$product1}}</td>
                                                                         <td>{{$price1->price}}</td>
-                                                                        <td>{{$qty1}}</td>
-                                                                        <td>{{$price1->price * $qty1}}</td>
+                                                                        <td>{{$qty1}}</td>  
+                                                                        <td class="price">{{$price1->price * $qty1}}</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>{{$product2}}</td>
+                                                                        @if(!empty($product2))
                                                                         <td>{{$price2->price}}</td>
+                                                                        @elseif(empty($product2))
+                                                                        <td>-</td>
+                                                                        @endif
                                                                         <td>{{$qty2}}</td>
-                                                                        <td>{{$price2->price * $qty2}}</td>
+                                                                        @if(!empty($product2))
+                                                                        <td class="price">{{$price2->price * $qty2}}</td>
+                                                                        @elseif(empty($product2))
+                                                                        <td>-</td>
+                                                                        @endif
                                                                      </tr>
                                                                     <tr>
                                                                         <td>{{$product3}}</td>
+                                                                        @if(!empty($product3))
                                                                         <td>{{$price3->price}}</td>
+                                                                        @elseif(empty($product3))
+                                                                        <td>-</td>
+                                                                        @endif
                                                                         <td>{{$qty3}}</td>
-                                                                        <td>{{$price3->price * $qty3}}</td>
+                                                                        @if(!empty($product3))
+                                                                        <td class="price">{{$price3->price * $qty3}}</td>
+                                                                        @elseif(empty($product3))
+                                                                        <td>-</td>
+                                                                        @endif
                                                                     </tr>
                                                                     <tr>
                                                                         <td>{{$product4}}</td>
+                                                                        @if(!empty($product4))
                                                                         <td>{{$price4->price}}</td>
+                                                                        @elseif(empty($product4))
+                                                                        <td>-</td>
+                                                                        @endif
                                                                         <td>{{$qty4}}</td>
-                                                                        <td>{{$price4->price * $qty4}}</td>
+                                                                        @if(!empty($product4))
+                                                                        <td class="price">{{$price4->price * $qty4}}</td>
+                                                                        @elseif(empty($product4))
+                                                                        <td>-</td>
+                                                                        @endif
                                                                     </tr>
                                                                     <tr>
                                                                       <td>{{$product5}}</td>
+                                                                      @if(!empty($product5))
                                                                       <td>{{$price5->price}}</td>
+                                                                      @elseif(empty($product5))
+                                                                      <td>-</td>
+                                                                      @endif
                                                                       <td>{{$qty5}}</td>
-                                                                      <td>{{$price5->price * $qty5}}</td>
+                                                                      @if(!empty($product5))
+                                                                      <td class="price">{{$price5->price * $qty5}}</td>
+                                                                      @elseif(empty($product5))
+                                                                      <td>-</td>
+                                                                      @endif
                                                                     </tr>
                                                                     <tr>
                                                                        <td>{{$product6}}</td>
+                                                                        @if(!empty($product6))
                                                                        <td>{{$price6->price}}</td>
+                                                                       @elseif(empty($product6))
+                                                                       <td>-</td>
+                                                                       @endif
                                                                        <td>{{$qty6}}</td>
-                                                                     <td>{{$price6->price * $qty6}}</td>
+                                                                       @if(!empty($product6))
+                                                                       <td class="price">{{$price6->price * $qty6}}</td>
+                                                                       @elseif(empty($product6))
+                                                                       <td>-</td>
+                                                                       @endif
                                                                     </tr>
-                                                                    <tr>
+                                                                    <tr class="totalColumn">
                                                                         <td></td>
                                                                         <td></td>
                                                                         <td><strong>Total &#8358;</strong></td>
-                                                                        <td>$10.99</td>
+                                                                        <td class="totalCol"></td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>

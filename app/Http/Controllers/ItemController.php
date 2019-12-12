@@ -28,7 +28,7 @@ class ItemController extends Controller
         $low = Item::where('status','Low Quantity')->get();
         $high = Item::where('status','High Quantity')->get();
         $order = Order::all();
-        return view('admin.dashboard',compact('customer','low','high','order'));
+        return view('admin.dashboard',compact('customer','high','low','order'));
     }
 
     public function get_invoice(Request $request){
